@@ -37,10 +37,11 @@ void setup()  {
 
   setSyncProvider(RTC.get);
 
-  if(timeStatus() != timeSet)
+  if(timeStatus() != timeSet) {
     digitalWrite(LED, HIGH);
     delay(100);
     digitalWrite(LED, LOW);
+  }
 }
 
 void loop()
