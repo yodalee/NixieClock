@@ -1,11 +1,13 @@
-#define CD4514_E 13
-#define CD4514_0 12
-#define CD4514_1 11
-#define CD4514_2 10
-#define CD4514_3 9
-#define BTN1 A0
-#define BTN2 A1
-#define LED  A2
+/*
+  HC238test
+
+  Test 74HC238 works fine.
+
+  The output of 74HC238 will be on from 0 to 7. Switch by pressing button 1.
+
+*/
+
+#include "pin.h"
 
 byte num = 0;
 const unsigned long debounceDelay = 50;
@@ -36,29 +38,21 @@ bool detectBtn1() {
 
 void setup() {
   // put your setup code here, to run once:
-  pinMode(CD4514_0, OUTPUT);
-  pinMode(CD4514_1, OUTPUT);
-  pinMode(CD4514_2, OUTPUT);
-  pinMode(CD4514_3, OUTPUT);
-  pinMode(CD4514_E, OUTPUT);
-  pinMode(BTN1, INPUT);
-  pinMode(BTN2, INPUT);
-
-  digitalWrite(CD4514_E, LOW);
-  num = 0;
+  pinMode(TUBE_0, OUTPUT);
+  pinMode(TUBE_1, OUTPUT);
+  pinMode(TUBE_2, OUTPUT);
 }
 
 void writeNum(int num) {
-  digitalWrite(CD4514_0, (num >> 3) & 0x1);
-  digitalWrite(CD4514_1, (num >> 2) & 0x1);
-  digitalWrite(CD4514_2, (num >> 1) & 0x1);
-  digitalWrite(CD4514_3, (num >> 0) & 0x1);
+  digitalWrite(TUBE_2, (num >> 2) & 0x1);
+  digitalWrite(TUBE_1, (num >> 1) & 0x1);
+  digitalWrite(TUBE_0, (num >> 0) & 0x1);
 }
 
 void loop() {
   if (detectBtn1()) {
     num++;
-    if (num == 12) {
+    if (num == 8) {
       num = 0;
     }
   }

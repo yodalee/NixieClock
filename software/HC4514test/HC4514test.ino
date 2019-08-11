@@ -1,9 +1,12 @@
-#define HC238_0 6
-#define HC238_1 7
-#define HC238_2 8
-#define BTN1 A0
-#define BTN2 A1
-#define LED  A2
+/*
+  HC4514test
+
+  Test 74HC4514 works fine.
+
+  The output of 74HC4514 will be on from 0 to 11. Switch by pressing button 1.
+
+*/
+#include "pin.h"
 
 byte num = 0;
 const unsigned long debounceDelay = 50;
@@ -34,21 +37,29 @@ bool detectBtn1() {
 
 void setup() {
   // put your setup code here, to run once:
-  pinMode(HC238_0, OUTPUT);
-  pinMode(HC238_1, OUTPUT);
-  pinMode(HC238_2, OUTPUT);
+  pinMode(DISPLAY_0, OUTPUT);
+  pinMode(DISPLAY_1, OUTPUT);
+  pinMode(DISPLAY_2, OUTPUT);
+  pinMode(DISPLAY_3, OUTPUT);
+  pinMode(DISPLAY_E, OUTPUT);
+  pinMode(BTN1, INPUT);
+  pinMode(BTN2, INPUT);
+
+  digitalWrite(DISPLAY_E, LOW);
+  num = 0;
 }
 
 void writeNum(int num) {
-  digitalWrite(HC238_2, (num >> 2) & 0x1);
-  digitalWrite(HC238_1, (num >> 1) & 0x1);
-  digitalWrite(HC238_0, (num >> 0) & 0x1);
+  digitalWrite(DISPLAY_0, (num >> 3) & 0x1);
+  digitalWrite(DISPLAY_1, (num >> 2) & 0x1);
+  digitalWrite(DISPLAY_2, (num >> 1) & 0x1);
+  digitalWrite(DISPLAY_3, (num >> 0) & 0x1);
 }
 
 void loop() {
   if (detectBtn1()) {
     num++;
-    if (num == 8) {
+    if (num == 12) {
       num = 0;
     }
   }

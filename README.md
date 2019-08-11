@@ -21,11 +21,17 @@ Some demo video:
 │   │   └── gerber\_v1.02 : v1.02 Gerber file  
 │   └── schematic : Schematic for [Altium](https://www.altium.com) and [EasyEDA](https://easyeda.com)  
 └── software  
-&emsp;&emsp;└── v1.01  
-&emsp;&emsp;&emsp;&emsp;├── DS1309 : Set time into DS1309  
-&emsp;&emsp;&emsp;&emsp;├── HC238test : Test 74HC238 works fine.  
-&emsp;&emsp;&emsp;&emsp;├── HC4514test : Test 74HC4514 works fine.  
-&emsp;&emsp;&emsp;&emsp;└── nixie : Source code that right now runs on my Nixie Clock  
+&emsp;&emsp;├── DS1309 : Set time into DS1309  
+&emsp;&emsp;├── HC238test : Test 74HC238 works fine.  
+&emsp;&emsp;├── HC4514test : Test 74HC4514 works fine.  
+&emsp;&emsp;├── nixie : Source code that right now runs on my Nixie Clock  
+&emsp;&emsp;├── pin1.01.h : Macro setting for v1.01 board
+&emsp;&emsp;└── pin1.02.h : Macro setting for v1.02 board
+
+## Usage
+1. Order the hardware board using the Gerber file.
+2. Buy materials according to BOM file.
+3. The software, please copy pin\<version\>.h to pin.h inside each directory.
 
 ## CAUTION
 

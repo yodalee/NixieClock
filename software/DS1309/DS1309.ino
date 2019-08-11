@@ -1,10 +1,13 @@
+/*
+  DS1309
+
+  Write time into DS1309 when button 1 is pressed
+*/
+
+#include "pin.h"
 #include <Wire.h>
 #include <Time.h>
 #include <DS1307RTC.h>
-
-#define BTN1 A0
-#define BTN2 A1
-#define LED  A2
 
 const unsigned long debounceDelay = 50;
 
@@ -38,9 +41,9 @@ void setup()  {
   setSyncProvider(RTC.get);
 
   if(timeStatus() != timeSet) {
-    digitalWrite(LED, HIGH);
+    digitalWrite(LED_Y, HIGH);
     delay(100);
-    digitalWrite(LED, LOW);
+    digitalWrite(LED_Y, LOW);
   }
 }
 
@@ -48,9 +51,9 @@ void loop()
 {
   if (detectBtn1()) {
     setTime();
-    digitalWrite(LED, HIGH);
+    digitalWrite(LED_Y, HIGH);
     delay(1000);
-    digitalWrite(LED, LOW);
+    digitalWrite(LED_Y, LOW);
   }
 }
 
