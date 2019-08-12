@@ -50,10 +50,10 @@ void setup() {
 }
 
 void writeNum(int num) {
-  digitalWrite(DISPLAY_0, (num >> 3) & 0x1);
-  digitalWrite(DISPLAY_1, (num >> 2) & 0x1);
-  digitalWrite(DISPLAY_2, (num >> 1) & 0x1);
-  digitalWrite(DISPLAY_3, (num >> 0) & 0x1);
+  digitalWrite(DISPLAY_3, (num >> 3) & 0x1);
+  digitalWrite(DISPLAY_2, (num >> 2) & 0x1);
+  digitalWrite(DISPLAY_1, (num >> 1) & 0x1);
+  digitalWrite(DISPLAY_0, (num >> 0) & 0x1);
 }
 
 void loop() {

@@ -4,10 +4,10 @@
 #define TUBE_2 (8)
 
 // Pin Num
-#define DISPLAY_0 (9)
+#define DISPLAY_0 (9)  // LSB
 #define DISPLAY_1 (10)
 #define DISPLAY_2 (11)
-#define DISPLAY_3 (12)
+#define DISPLAY_3 (12) // MSB
 #define DISPLAY_E (13)
 
 // BTN
